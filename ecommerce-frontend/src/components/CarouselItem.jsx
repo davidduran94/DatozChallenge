@@ -1,6 +1,9 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import '../assets/styles/components/CarouselItem.scss';
+import { setFavorite, deteleFavorite } from "../actions";
+
 import plusIcon from '../assets/static/plus-icon.png';
 
 const CarouselItem = (props) => {
@@ -14,6 +17,10 @@ const CarouselItem = (props) => {
   }
   const handleDeleteFavorite = (itemId) => {
     props.deteleFavorite(itemId);
+  }
+
+  const handleRequestProducts = () => {
+    props.set
   }
 
   return(
@@ -48,4 +55,9 @@ CarouselItem.propTypes = {
   type: PropTypes.string,
 };
 
-export default CarouselItem;
+const mapDispatchToProps = {
+  setFavorite,
+  deteleFavorite,
+};
+
+export default connect(null, mapDispatchToProps)(CarouselItem);
