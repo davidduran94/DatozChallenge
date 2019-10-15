@@ -2,10 +2,9 @@ const express = require('express');
 const app = express();
 
 const { config } = require('./config/index');
+const ecommerceApi = require('./routes/ecommerce.js')
 
-app.get('/', (req, res) => {
-    res.send('hello');
-});
+ecommerceApi(app);
 
 
 app.listen(config.port, () => {
