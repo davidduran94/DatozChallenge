@@ -6,7 +6,7 @@ import Categories from '../components/Categories';
 import CarouselItem from '../components/CarouselItem';
 import '../assets/styles/App.scss';
 
-const App = () => {
+const Home = () => {
   const initialState  = { 
     storeList:[
         { 
@@ -25,7 +25,7 @@ const App = () => {
     ],
     products:[
         {
-            id: 14234,
+            id: 1457234,
             name:'Kichink' ,
             url: 'https://www.kichink.com/',
             cover: 'https://s3.amazonaws.com/img2-kichink/items_2096958_100728_0_20190207183922_b.jpg',
@@ -34,6 +34,36 @@ const App = () => {
             price: 450,
 
         },
+        {
+          id: 214234,
+          name:'Kichink' ,
+          url: 'https://www.kichink.com/',
+          cover: 'https://s3.amazonaws.com/img2-kichink/items_2096958_100728_0_20190207183922_b.jpg',
+          title: 'Chamarra negra',
+          description: 'Chamarra para hombre en paño de lana',
+          price: 450,
+
+      },
+      {
+        id: 149234,
+        name:'Kichink' ,
+        url: 'https://www.kichink.com/',
+        cover: 'https://s3.amazonaws.com/img2-kichink/items_2096958_100728_0_20190207183922_b.jpg',
+        title: 'Chamarra negra',
+        description: 'Chamarra para hombre en paño de lana',
+        price: 450,
+
+    },
+    {
+      id: 142934,
+      name:'Kichink' ,
+      url: 'https://www.kichink.com/',
+      cover: 'https://s3.amazonaws.com/img2-kichink/items_2096958_100728_0_20190207183922_b.jpg',
+      title: 'Chamarra negra',
+      description: 'Chamarra para hombre en paño de lana',
+      price: 450,
+
+  }
 
     ],
     productsFavs:[
@@ -78,4 +108,4 @@ const App = () => {
   );
 }
 
-export default App;
+export default Home;
