@@ -24,7 +24,7 @@ export const setFavorite = payload => ({
   });
   
   export const getItemsSource = payload => ({
-    type: 'GET_VIDEO_SOURCE',
+    type: 'GET_ITEMS_SOURCE',
     payload,
   });
   
