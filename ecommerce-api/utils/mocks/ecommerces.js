@@ -6,8 +6,8 @@ const mockEcommerce = [
     },
     {
         id: 2,
-        name:'AMZ' ,
-        url: 'http://amazon.com.mx'
+        name:'ML' ,
+        url: 'https://www.mercadolibre.com.mx/'
     }
 ];
 module.exports = { 
