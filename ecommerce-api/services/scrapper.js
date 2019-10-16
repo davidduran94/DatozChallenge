@@ -1,10 +1,15 @@
 const { mockEcommerce } = require('../utils/mocks/ecommerces');
+const ProductsService = require('../services/products');
+
 const request = require("request");
 const cheerio = require("cheerio");
 
 class ScrapperService {
 
     async scrappDataKichink() {
+
+        const productsService = new ProductsService();
+
         request({ method:'GET', url:mockEcommerce[0].url }, 
         (error, response, data) => {
           if (error) return console.error(error);
@@ -30,6 +35,8 @@ class ScrapperService {
                 const imageUri = $(imageElem).attr('src');
                 const priceData = $(urlSpan).find('strong.price')[0]
                 const price = $(priceData).text();
+
+                //let stores = await productsService.createProduct(store);
 
 
                 // We then print the text on to the console
