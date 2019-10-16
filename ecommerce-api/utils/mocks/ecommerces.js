@@ -1,8 +1,8 @@
 const mockEcommerce = [
     { 
         id: 1,
-        name:'ML' ,
-        url: 'http://mercadolibre.com.mx'
+        name:'Kichink' ,
+        url: 'https://www.kichink.com/'
     },
     {
         id: 2,

@@ -1,18 +1,33 @@
 const express = require('express');
-const { mockEcommerce } = require('../utils/mocks/ecommerces');
+const ProductsService = require('../services/products');
+const ScrapperService = require('../services/scrapper');
 
 
 function ecommerceApi (app) {
     const router = express.Router();
-    app.use('/api/ecommerces', router);
+    app.use('/sources/', router);
 
-    router.get('/', async function(req, res, next){
+    // Inyeccion de servicios
+    const productsService = new ProductsService();
+    const scrapperService = new ScrapperService();
+
+    router.get('/:store/products', async function(req, res, next){
         try{
-            const stores = await Promise.resolve(mockEcommerce);
-            res.status(200).json({
-                data: stores,
-                message: 'success'
-            });
+            const store = req.params.store;
+            if(store.length > 0){
+                let gene = await scrapperService.generareProducts(store);
+                let stores = await productsService.getProducts(store);
+                res.status(200).json({
+                    data: stores,
+                    message: 'success'
+                });
+                
+            }else{
+                res.status(503).json({
+                    data: [],
+                    message: 'no data available'
+                });
+            }
         } catch(err){
             next(err);
         }
