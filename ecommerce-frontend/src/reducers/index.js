@@ -3,7 +3,7 @@ const reducer = (state, action) => {
       case 'SET_FAVORITE':
         return {
           ...state,
-          productsFavs: [...state.productsFavs, action.payload]
+          productsFavs: [...state.productsFavs.filter(items => items.id !== action.payload.id), action.payload]
         }
       case 'DELETE_FAVORITE':
         return {
