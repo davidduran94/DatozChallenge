@@ -13,8 +13,7 @@ const reducer = (state, action) => {
       case 'GET_ITEMS_SOURCE':
         return {
           ...state,
-          playing: state.trends.find(item => item.id === Number(action.payload)) ||
-            state.originals.find(item => item.id === Number(action.payload)) || {}
+          products: state.productsList.filter(item => item.name === action.payload) || {}
         }
       default:
         return state;
