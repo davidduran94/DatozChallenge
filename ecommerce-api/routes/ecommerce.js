@@ -11,11 +11,37 @@ function ecommerceApi (app) {
     const productsService = new ProductsService();
     const scrapperService = new ScrapperService();
 
+    /**
+     * Generacion de nuevos productos por tipo de tienda
+     */
     router.get('/:store/products', async function(req, res, next){
         try{
             const store = req.params.store;
             if(store.length > 0){
                 let gene = await scrapperService.generareProducts(store);
+                //let stores = await productsService.getProducts(store);
+                res.status(200).json({
+                    data: stores,
+                    message: 'success'
+                });
+                
+            }else{
+                res.status(503).json({
+                    data: [],
+                    message: 'no data available'
+                });
+            }
+        } catch(err){
+            next(err);
+        }
+    });
+
+
+    router.get('/products/:store', async function(req, res, next){
+        try{
+            const store = req.params.store;
+            if(store.length > 0){
+                //let gene = await scrapperService.generareProducts(store);
                 let stores = await productsService.getProducts(store);
                 res.status(200).json({
                     data: stores,
@@ -32,6 +58,8 @@ function ecommerceApi (app) {
             next(err);
         }
     });
+
+
 }
 
 module.exports = ecommerceApi;

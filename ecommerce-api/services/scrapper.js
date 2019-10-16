@@ -7,7 +7,7 @@ const cheerio = require("cheerio");
 class ScrapperService {
 
     async scrappDataKichink() {
-
+        const type = 'kichink';
         const productsService = new ProductsService();
 
         request({ method:'GET', url:mockEcommerce[0].url }, 
@@ -36,14 +36,8 @@ class ScrapperService {
                     const priceData = $(urlSpan).find('strong.price')[0]
                     const price = $(priceData).text();
 
-                    //let stores = await productsService.createProduct(store);
+                    productsService.createProduct({title, price, imageUri, type});
 
-
-                    // We then print the text on to the console
-                    console.log(imageUri)
-                    console.log(title)
-                    console.log(price)
-                    console.log("-------------------------------------")
                 }
             }               
         }
@@ -52,7 +46,7 @@ class ScrapperService {
 
 
     async scrappDataML() {
-
+        const type = 'ML';
         const productsService = new ProductsService();
 
         request({ method:'GET', url:mockEcommerce[1].url }, 
@@ -83,14 +77,8 @@ class ScrapperService {
                     const titleData = $(data).find('p.ui-item__title')[0];
                     const title = $(titleData).text();
 
-                    //let stores = await productsService.createProduct(store);
-
-
-                    // We then print the text on to the console
-                    console.log(imageUri);
-                    console.log(title);
-                    console.log(price);
-                    console.log("-------------------------------------");
+                    // call the service to save on mongo
+                    productsService.createProduct({title, price, imageUri, type});
                 }
             }               
         }
@@ -104,6 +92,7 @@ class ScrapperService {
         const stores = [];
         switch (ecommerce){
             case 'Kichink':
+                console.log("scarapping ml");
                 await this.scrappDataKichink()
             break;
             case 'ML':
