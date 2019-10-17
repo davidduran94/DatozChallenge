@@ -26,7 +26,7 @@ describe('routes - products', function() {
     /// test listado de productos Kichink
     it('should respond with the list products', function(done) {
       request.get('/products/Kichink').end((err, res) => {
-        assert.equal(res.body, {
+        assert.deepEqual(res.body, {
           data: mockProds.filter(item => item.name == 'Kichink'),
           message: 'success'
         });
@@ -38,7 +38,7 @@ describe('routes - products', function() {
     /// test listado de productos ML
     it('should respond with the list products', function(done) {
         request.get('/products/ML').end((err, res) => {
-          assert.equal(res.body, {
+          assert.deepEqual(res.body, {
             data: mockProds.filter(item => item.name == 'ML'),
             message: 'success'
           });
