@@ -19,7 +19,7 @@ const Home = (state) => {
         <Categories title="">
           <Carousel>
             {state.storeList.map(item =>
-              <CarouselItem key={item.id} {...item} />
+              <CarouselItem key={item._id} {...item} />
             )}
           </Carousel>
         </Categories>
@@ -29,7 +29,7 @@ const Home = (state) => {
       <Categories title="Products Lists">
         <Carousel>
           {state.products.map(item =>
-            <CarouselItem key={item.id} {...item} />
+            <CarouselItem key={item._id} {...item} />
           )}
         </Carousel>
       </Categories>
@@ -37,7 +37,7 @@ const Home = (state) => {
       <Categories title="Favorites">
         <Carousel>
           {state.productsFavs.map(item =>
-            <CarouselItem key={item.id} {...item} />
+            <CarouselItem key={item._id} {...item} />
           )}
         </Carousel>
       </Categories>

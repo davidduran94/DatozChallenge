@@ -3,17 +3,17 @@ const reducer = (state, action) => {
       case 'SET_FAVORITE':
         return {
           ...state,
-          productsFavs: [...state.productsFavs.filter(items => items.id !== action.payload.id), action.payload]
+          productsFavs: [...state.productsFavs.filter(items => items._id !== action.payload._id), action.payload]
         }
       case 'DELETE_FAVORITE':
         return {
           ...state,
-          productsFavs: state.productsFavs.filter(items => items.id !== action.payload)
+          productsFavs: state.productsFavs.filter(items => items._id !== action.payload)
         }
       case 'GET_ITEMS_SOURCE':
         return {
           ...state,
-          products: state.productsList.filter(item => item.name === action.payload) || {}
+          products: action.payload.data.reverse() || {}
         }
       default:
         return state;
