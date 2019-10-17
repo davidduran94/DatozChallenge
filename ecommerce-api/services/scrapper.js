@@ -119,11 +119,11 @@ class ScrapperService {
         const stores = [];
         switch (ecommerce){
             case 'Kichink':
-                console.log("scarapping ml");
+                console.log("scarapping kichink");
                 await this.scrappDataKichink()
             break;
             case 'ML':
-                console.log("scarapping ml");
+                console.log("scarapping mercadolibre");
                 await this.scrappDataML()
             break;
         }

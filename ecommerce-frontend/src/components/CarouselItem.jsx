@@ -7,6 +7,10 @@ import { getItemsSource, deleteFavorite, setFavorite, getProducts } from "../act
 import plusIcon from '../assets/static/plus-icon.png';
 import minusIcon from '../assets/static/minus-icon.png';
 
+/**
+ * Card item que muestra l ainformacion de un producto o tienda
+ * @param {*} props 
+ */
 const CarouselItem = (props) => {
   const { _id, type, cover, title, description, price, name } = props;
   const loading = false;
@@ -22,7 +26,7 @@ const CarouselItem = (props) => {
   }
 
   const handleRequestProducts = (nameStore) => {
-    console.log(`requesting data from ${nameStore}`);
+    //console.log(`requesting data from ${nameStore}`);
     props.getProducts(nameStore);
 
   }
@@ -60,6 +64,7 @@ const CarouselItem = (props) => {
 
 }
 
+/** validacion de pros del component */
 CarouselItem.propTypes = {
   _id: PropTypes.string,
   name: PropTypes.string,
@@ -70,6 +75,7 @@ CarouselItem.propTypes = {
   type: PropTypes.string,
 };
 
+/** acciones que puede ejecutar el componente para cambiar estado */
 const mapDispatchToProps = {
   getItemsSource,
   deleteFavorite,

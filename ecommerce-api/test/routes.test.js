@@ -1,10 +1,13 @@
 const assert = require('assert');
 const proxyquire = require('proxyquire');
-
-    //filteredProducts,
 const { mockProds, ProductsServiceMock } = require('../utils/mocks/products');
 const testServer = require('../utils/testServer');
 
+/**
+ * Descripción de test a endpoints
+ * Objetivo:
+ *    Saber solo si los enpoints responden correctamente  
+ */
 describe('routes - products', function() {
   const route = proxyquire('../routes/ecommerce', {
     '../services/products': ProductsServiceMock

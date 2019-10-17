@@ -3,8 +3,7 @@
 Prueba técnica de Datoz consiste en una aplicación web la cual es capaz de hacer web-scrapping a los ecommerce mercadolibre y kichink, con la finalidad de obtener un catalogo de sus productos. 
 
 ## Frontend React & Redux
-
-Usar node package manager [npm](https://www.npmjs.com/) para iniciar la aplicación.
+Dentro de el directorio ecommerce-frontend usar node package manager [npm](https://www.npmjs.com/) para iniciar la aplicación.
 
 ```bash
 npm install
@@ -13,8 +12,7 @@ npm run start
 
 
 ## Backend NodeJS & Express
-
-Usar node package manager [npm](https://www.npmjs.com/) para levantar el servidor.
+Dentro de el directorio ecommerce-api usar node package manager [npm](https://www.npmjs.com/) para levantar el servidor.
 
 ```bash
 npm install 
@@ -22,15 +20,15 @@ npm run start
 ```
 ## Tests Backend
 
-Usar node package manager [npm](https://www.npmjs.com/) para levantar el servidor.
+Dentro de el directorio ecommerce-api usar node package manager [npm](https://www.npmjs.com/) para correr los test
 
 ```bash
 npm install 
-npm run start
+npm test
 ```
 
 ## Examples
-
+![alt text](https://github.com/davidduran94/DatozChallenge/ecommerce-frontend/public/img1)
 
 
 ## Contributing

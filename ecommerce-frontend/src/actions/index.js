@@ -1,4 +1,9 @@
-import axios from 'axios';
+import axios from 'axios'; // para hacer llamadas a API
+
+/**
+ * Listado de acciones que se pueden ejecutar por component
+ * @param {*} payload 
+ */
 
 export const setFavorite = payload => ({
     type: 'SET_FAVORITE',
@@ -26,6 +31,10 @@ export const founds = payload => ({
 });
 
 
+/**
+ * Thunks para el llamado a API asincrono
+ * @param {*} payload 
+ */
 export const searchAgain = payload => {
   return (dispatch) => {
     axios.get(`http://localhost:3000/products/${payload}`)

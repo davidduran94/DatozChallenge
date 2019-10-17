@@ -3,7 +3,10 @@ const ProductsService = require('../services/products');
 const FavoritesService = require('../services/favorites');
 const ScrapperService = require('../services/scrapper');
 
-
+/**
+ * Funcion que maneja las rutas de la aplicacion
+ * @param {*} app 
+ */
 function ecommerceApi (app) {
     const router = express.Router();
     app.use('/products/', router);
@@ -37,7 +40,9 @@ function ecommerceApi (app) {
         }
     });
 
-
+    /**
+     * obtencion de productos por tienda
+     */
     router.get('/:store', async function(req, res, next){
         try{
             const store = req.params.store;
@@ -59,10 +64,12 @@ function ecommerceApi (app) {
         }
     });
 
-
+    /**
+     * obtencion de todos los favoritos
+     */
     router.get('/favorites', async function(req, res, next){
         try{
-            console.log("searching...");
+            //console.log("searching...");
             let favs = await favoritesService.getFavorites();
             favs.length > 0 ? (
                 res.status(200).json({
@@ -84,6 +91,9 @@ function ecommerceApi (app) {
         }
     });
 
+    /** 
+     * Guardado de un nuevo favorito
+     */
     router.post('/favorites', async function(req, res, next){
         try{
             let favs = await favoritesService.getFavorites();
@@ -100,6 +110,9 @@ function ecommerceApi (app) {
         }
     });
 
+    /**
+     * Eliminacion de favorito
+     */
     router.delete('/favorites/:id', async function(req, res, next){
         try{
             let favs = await favoritesService.deleteFavById(req.params.id);
