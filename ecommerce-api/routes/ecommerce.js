@@ -1,5 +1,6 @@
 const express = require('express');
 const ProductsService = require('../services/products');
+const FavoritesService = require('../services/favorites');
 const ScrapperService = require('../services/scrapper');
 
 
@@ -9,6 +10,7 @@ function ecommerceApi (app) {
 
     // Inyeccion de servicios
     const productsService = new ProductsService();
+    const favoritesService = new FavoritesService();
     const scrapperService = new ScrapperService();
 
     /**
@@ -47,9 +49,9 @@ function ecommerceApi (app) {
                 });
                 
             }else{
-                res.status(503).json({
+                res.status(500).json({
                     data: [],
-                    message: 'no data available'
+                    message: 'error'
                 });
             }
         } catch(err){
@@ -58,7 +60,63 @@ function ecommerceApi (app) {
     });
 
 
+    router.get('/favorites', async function(req, res, next){
+        try{
+            console.log("searching...");
+            let favs = await favoritesService.getFavorites();
+            favs.length > 0 ? (
+                res.status(200).json({
+                    data: favs,
+                    message: 'sucddcess'
+                })
+            ) : (
+                res.status(503).json({
+                    data: [],
+                    message: 'no data'
+                })
+            )
+        } catch(err){
+            res.status(500).json({
+                data: [],
+                message: 'error'
+            });
+            next(err);
+        }
+    });
+
+    router.post('/favorites', async function(req, res, next){
+        try{
+            let favs = await favoritesService.getFavorites();
+            res.status(200).json({
+                data: favs,
+                message: 'success'
+            });
+        } catch(err){
+            res.status(500).json({
+                data: [],
+                message: 'error'
+            });
+            next(err);
+        }
+    });
+
+    router.delete('/favorites/:id', async function(req, res, next){
+        try{
+            let favs = await favoritesService.deleteFavById(req.params.id);
+            res.status(200).json({
+                data: favs,
+                message: 'success'
+            });
+        } catch(err){
+            res.status(503).json({
+                data: [],
+                message: 'no data available'
+            });
+            next(err);
+        }
+    });
+
+
 }
 
 module.exports = ecommerceApi;
-
