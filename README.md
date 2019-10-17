@@ -28,7 +28,7 @@ npm test
 ```
 
 ## Examples
-![alt text](https://github.com/davidduran94/DatozChallenge/ecommerce-frontend/public/img1)
+![alt text](https://github.com/davidduran94/DatozChallenge/blob/Development/ecommerce-frontend/public/examples/img1.png)
 
 
 ## Contributing
