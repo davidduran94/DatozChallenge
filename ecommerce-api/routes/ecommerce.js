@@ -5,7 +5,7 @@ const ScrapperService = require('../services/scrapper');
 
 function ecommerceApi (app) {
     const router = express.Router();
-    app.use('/sources/', router);
+    app.use('/products/', router);
 
     // Inyeccion de servicios
     const productsService = new ProductsService();
@@ -14,14 +14,13 @@ function ecommerceApi (app) {
     /**
      * Generacion de nuevos productos por tipo de tienda
      */
-    router.get('/:store/products', async function(req, res, next){
+    router.get('/generate/:store', async function(req, res, next){
         try{
             const store = req.params.store;
             if(store.length > 0){
                 let gene = await scrapperService.generareProducts(store);
-                //let stores = await productsService.getProducts(store);
                 res.status(200).json({
-                    data: stores,
+                    data: gene,
                     message: 'success'
                 });
                 
@@ -37,11 +36,10 @@ function ecommerceApi (app) {
     });
 
 
-    router.get('/products/:store', async function(req, res, next){
+    router.get('/:store', async function(req, res, next){
         try{
             const store = req.params.store;
             if(store.length > 0){
-                //let gene = await scrapperService.generareProducts(store);
                 let stores = await productsService.getProducts(store);
                 res.status(200).json({
                     data: stores,

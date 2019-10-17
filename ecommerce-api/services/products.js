@@ -11,10 +11,11 @@ class ProductsService {
 
 
     /**
-     * Obtiene 10 nuevos productos del store solicitado
+     * Obtiene nuevos productos del store solicitado
      */
-    async getProducts({name}){
-        const query = name && { name: {$in: name }};
+    async getProducts(name){
+        const nameStore = [name]; 
+        const query = name && { name: { $in: nameStore }};
         const prods =  this.mongoDB.getAll(this.collection, query);
         return prods || [];
     }
