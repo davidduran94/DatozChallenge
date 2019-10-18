@@ -4,7 +4,6 @@ Prueba técnica de Datoz consiste en una aplicación web la cual es capaz de hac
 
 ## Frontend React & Redux
 Dentro de el directorio ecommerce-frontend usar node package manager [npm](https://www.npmjs.com/) para iniciar la aplicación.
-
 ```bash
 npm install
 npm run start
@@ -25,6 +24,24 @@ Dentro de el directorio ecommerce-api usar node package manager [npm](https://ww
 ```bash
 npm install 
 npm test
+```
+
+## BD Mongo
+Dentro del directorio DB se encuentra la estructura de las colecciones de mongo necesarias para guardar los datos de los productos
+
+```bash
+DB_Name: datoz_scrapp_db 
+Collection_Products_Example: {
+     "_id" : ObjectId("5da7c48949af5c62398e43f5"), 
+    "name" : "ML", 
+    "type" : "", 
+    "url" : "https://www.mercadolibre.com.mx/", 
+    "cover" : "https://http2.mlstatic.com/D_Q_NP_750455-MLM31913531630_082019-AB.jpg", 
+    "title" : "Refrigerador Automático 251.19 L Mabe - Rma1025xmxe1", 
+    "description" : "Refrigerador Automático 251.19 L Mabe - Rma1025xmxe1", 
+    "price" : "5,999"
+}
+
 ```
 
 ## Examples
